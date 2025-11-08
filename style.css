@@ -1,0 +1,299 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+/* === 1. GLOBAL & RESET === */
+:root {
+    --primary-purple: #8416AA;
+    --dark-bg: #121212;         /* Main background */
+    --content-bg: #1e1e1e;       /* Card/container background */
+    --text-light: #f4f4f4;     /* Main text */
+    --text-muted: #a0a0a0;     /* Subheadings, muted text */
+    --border-color: #333333;
+    --success-green: #4CAF50;
+    --error-red: #f44336;
+}
+
+/* === 10. RESPONSIVENESS === */
+@media (max-width: 600px) {
+ /* Pricing section on mobile */
+    .price-content {
+        flex-direction: column; /* Stack prices vertically */
+        gap: 20px;
+    }
+    .new-price {
+        font-size: 3.2em; /* Make text slightly smaller on mobile */
+    }
+    .old-price {
+        font-size: 2em;
+    }
+    .offer-badge {
+        font-size: 1em;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+/* === 2. LAYOUT & TYPOGRAPHY === */
+.container {
+    max-width: 700px; /* Wider for a full landing page */
+    margin: 20px auto;
+    padding: 25px;
+    background-color: var(--content-bg);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+h1, h2 {
+    font-weight: 900; /* Extra bold for "pro" look */
+    line-height: 1.3;
+}
+
+h2 {
+    color: var(--primary-purple);
+    font-size: 1.8em;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 15px;
+    color: var(--text-muted);
+}
+
+strong {
+    color: var(--text-light); /* Make strong text stand out */
+}
+
+/* === 3. HEADER === */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+}
+
+.main-title {
+    font-size: 3em;
+    color: var(--primary-purple);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.subheading {
+    font-size: 1.2em;
+    color: var(--text-light);
+    max-width: 500px;
+    margin: 10px auto 0;
+}
+
+/* === 4. PROBLEM & SOLUTION === */
+.problem-solution .problem,
+.problem-solution .solution {
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.problem-solution .problem {
+    background-color: rgba(244, 67, 54, 0.1); /* Red-tinted background */
+    border-left: 5px solid var(--error-red);
+}
+
+.problem-solution .solution {
+    background-color: rgba(76, 175, 80, 0.1); /* Green-tinted background */
+    border-left: 5px solid var(--success-green);
+}
+
+/* === 5. CALL TO ACTION BUTTON === */
+.cta-button {
+    display: block;
+    text-decoration: none;
+    background-color: var(--primary-purple);
+    color: white;
+    padding: 20px 25px;
+    margin: 25px 0;
+    border-radius: 8px;
+    font-size: 1.4em;
+    font-weight: 700;
+    text-align: center;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #6a1189; /* Darker purple */
+    transform: scale(1.02);
+}
+
+/* === 6. BENEFITS LIST === */
+.benefits ul {
+    list-style: none; /* Remove default bullets */
+}
+
+.benefits li {
+    position: relative;
+    padding-left: 35px; /* Make space for custom icon */
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: var(--text-light);
+}
+
+/* Custom bullet (check-mark) */
+.benefits li::before {
+    content: '✅'; /* You can use any emoji or icon */
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2em;
+}
+
+/* === 7. SOCIAL PROOF === */
+blockquote {
+    font-style: italic;
+    font-size: 1.2em;
+    color: var(--text-muted);
+    padding: 20px;
+    background: var(--dark-bg); /* Slightly darker for contrast */
+    border-left: 5px solid var(--primary-purple);
+    border-radius: 0 8px 8px 0;
+}
+
+blockquote footer {
+    text-align: right;
+    font-style: normal;
+    font-weight: 700;
+    color: var(--primary-purple);
+    margin-top: 10px;
+}
+
+.stats {
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--text-light);
+    background: var(--dark-bg);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* === 8. INSTRUCTOR BIO === */
+.instructor {
+    text-align: center;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-purple);
+    margin-bottom: 20px;
+}
+
+.small-link {
+    display: block;
+    margin-top: 15px;
+    color: var(--primary-purple);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.small-link:hover {
+    text-decoration: underline;
+}
+
+/* === 9. FINAL CTA === */
+.final-cta {
+    text-align: center;
+}
+
+.reinforce-statement {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+/* === 4.5. PRICING === */
+.pricing h2 {
+    text-align: center;
+    font-size: 1.8em;
+    color: var(--text-light); /* White text for this heading */
+}
+
+.price-box {
+    background: var(--dark-bg); /* Darker box to stand out */
+    border: 3px solid var(--primary-purple);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 20px;
+    box-shadow: 0 0 25px rgba(132, 22, 170, 0.3); /* Purple glow */
+}
+
+.offer-badge {
+    display: inline-block;
+    background-color: var(--success-green);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.price-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Space between old and new price */
+    margin-bottom: 20px;
+}
+
+.price-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.price-label {
+    font-size: 1em;
+    color: var(--text-muted);
+}
+
+.old-price {
+    font-size: 2.2em;
+    color: var(--error-red);
+    font-weight: 700;
+    text-decoration: line-through;
+    text-decoration-thickness: 3px;
+}
+
+.new-price {
+    font-size: 4em;
+    font-weight: 900;
+    color: var(--primary-purple);
+    line-height: 1.1;
+}
+
+.price-duration {
+    font-size: 1em;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 0; /* Remove default p margin */
+}

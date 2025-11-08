@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Academy Pro - Secure Enrollment</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'primary-purple': '#8416AA',
+            'dark-bg': '#121212',
+            'content-bg': '#1e1e1e',
+            'card-bg': '#2a2a2a',
+            'success-green': '#4CAF50',
+            'error-red': '#ff4d4d',
+            'text-light': '#f5f5f5',
+            'text-muted': '#aaa'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* Step Numbers */
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #5d107a;
+      color: white;
+      font-weight: 700;
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+
+    /* === Pricing Section === */
+    .pricing h2 {
+      text-align: center;
+      font-size: 1.8em;
+      color: var(--text-light, #f5f5f5);
+    }
+
+    .price-box {
+      background: var(--dark-bg, #121212);
+      border: 3px solid var(--primary-purple, #8416AA);
+      border-radius: 12px;
+      padding: 25px 15px;
+      text-align: center;
+      margin-top: 20px;
+      box-shadow: 0 0 25px rgba(132, 22, 170, 0.3);
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .offer-badge {
+      display: inline-block;
+      background-color: var(--success-green, #4CAF50);
+      color: white;
+      padding: 8px 15px;
+      border-radius: 6px;
+      font-size: 1.1em;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .price-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 10px;
+    }
+
+    .price-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .price-label {
+      font-size: 1em;
+      color: var(--text-muted, #aaa);
+    }
+
+    .old-price {
+      font-size: 1.8em;
+      color: var(--error-red, #ff4d4d);
+      font-weight: 700;
+      text-decoration: line-through;
+      text-decoration-thickness: 3px;
+    }
+
+    .new-price {
+      font-size: 2.5em;
+      font-weight: 900;
+      color: var(--primary-purple, #8416AA);
+      line-height: 1.1;
+    }
+
+    @media (min-width: 640px) {
+      .price-box {
+        padding: 30px 40px;
+      }
+      .old-price {
+        font-size: 2.2em;
+      }
+      .new-price {
+        font-size: 3.5em;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-dark-bg min-h-screen p-4 sm:p-8 font-sans text-gray-100 flex justify-center items-center">
+
+  <div class="w-full max-w-5xl bg-content-bg rounded-xl shadow-2xl p-6 sm:p-10">
+
+    <!-- HEADER -->
+    <header class="text-center mb-8 border-b border-gray-700 pb-6">
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-primary-purple tracking-wider">AI Academy Pro</h1>
+      <p class="mt-2 text-xl text-gray-300">Secure Enrollment & Payment</p>
+    </header>
+
+    <!-- MAIN LAYOUT -->
+    <div class="flex flex-col lg:flex-row-reverse gap-8">
+      
+      <!-- RIGHT COLUMN FIRST ON MOBILE: PAYMENT -->
+      <div class="lg:w-1/2 p-6 bg-card-bg rounded-lg shadow-inner">
+        <h2 class="text-3xl font-bold mb-6 text-primary-purple">Payment Instructions</h2>
+
+        <!-- Step 1 -->
+        <div class="mb-8">
+          <div class="flex items-center mb-4">
+            <span class="step-number">1</span>
+            <h3 class="text-xl font-bold text-white">Transfer Funds to This Account</h3>
+          </div>
+
+          <div class="bg-dark-bg p-4 rounded-lg border border-primary-purple">
+            <p class="text-sm text-gray-400">Bank Details (Copy to Clipboard):</p>
+
+            <div id="account-details" class="mt-2 text-white font-mono text-lg space-y-1">
+              <p><strong>Account Name:</strong> <span id="account-name">EZIKE OBINNA ALEX</span></p>
+
+              <p><strong>Bank Name:</strong> <span id="account-name">OPAY</span></p>
+
+              <p><strong>Account Number:</strong> <span id="account-number">9069972919</span></p>
+            </div>
+
+            <button onclick="copyDetails('YOUR_ACCOUNT_NUMBER_HERE')" 
+                    class="mt-4 w-full bg-primary-purple hover:bg-white hover:text-primary-purple transition text-white font-bold py-2 rounded-md shadow-md">
+              Copy Account Number
+            </button>
+
+            <div id="copy-message" class="mt-2 text-center text-sm text-success-green hidden">
+              Account number copied!
+            </div>
+          </div>
+        </div>
+
+        <!-- === 4.5. PRICING === -->
+        <section class="pricing mb-10">
+          <h2>Get Full Lifetime Access</h2>
+          <div class="price-box mx-auto">
+            <span class="offer-badge">LIMITED TIME 65% OFF!</span>
+
+            <div class="price-content">
+              <div class="price-column">
+                <span class="price-label">Regular Price</span>
+                <del class="old-price">₦10,000</del>
+              </div>
+
+              <div class="price-column">
+                <span class="price-label">Your Price Today</span>
+                <strong class="new-price">₦3,500</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Step 2 -->
+        <div>
+          <div class="flex items-center mb-4">
+            <span class="step-number">2</span>
+            <h3 class="text-xl font-bold text-white">Send Proof of Payment</h3>
+          </div>
+
+          <p class="text-gray-300 mb-6">After making the transfer, click the button below to send your payment screenshot directly to us. We will send our Community invite link immediately!</p>
+
+          <a id="whatsapp-link" 
+             href="https://wa.me/2347079700619"
+             target="_blank"
+             class="flex items-center justify-center w-full bg-success-green hover:bg-green-600 transition text-white font-black py-4 rounded-lg text-xl shadow-lg border-b-4 border-green-700">
+            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12.039 2c-5.467 0-9.916 4.449-9.916 9.916 0 1.547.433 3.011 1.258 4.312l-1.319 4.838 5.01-1.309a9.888 9.888 0 0 0 4.967 1.255c5.466 0 9.916-4.448 9.916-9.916.001-5.467-4.448-9.916-9.915-9.916zm3.504 14.502c-.185.309-.607.411-.906.226-.826-.549-1.954-.925-3.093-.925-.331 0-.663.033-.993.098-.444.086-.889.043-1.332-.13-.396-.15-.658-.517-.658-.934 0-.374.204-.72.541-.893 1.391-.689 3.007-.946 4.606-.713 1.056.151 2.052.545 2.943 1.157.387.26.541.698.391 1.13zm.599-2.903c-.267-.29-.636-.435-1.008-.435h-.002c-1.12 0-2.239.314-3.328.94-.523.3-1.042.483-1.57.483-.243 0-.486-.037-.728-.11-.476-.145-.783-.623-.783-1.13 0-.549.33-.94.757-1.11 1.637-.68 3.428-1.025 5.21-.861 1.054.09 2.063.42 2.98.98.423.264.606.77.447 1.21-.115.344-.452.57-.847.57z"/>
+            </svg>
+            Submit Screenshot
+          </a>
+        </div>
+      </div>
+
+      <!-- LEFT COLUMN: BENEFITS -->
+      <div class="lg:w-1/2 p-6 bg-card-bg rounded-lg shadow-inner flex flex-col justify-between">
+        <div>
+          <h2 class="text-3xl font-bold mb-4 text-white">Why Join Now?</h2>
+          <p class="text-lg text-primary-purple font-semibold mb-6">You're seconds away from stopping the prompt guessing game.</p>
+
+          <ul class="space-y-4 text-gray-200">
+            <li class="flex items-start">
+              <span class="text-success-green text-xl mr-3 mt-1">✓</span>
+              <span><strong class="text-white">Tutorial Videos:</strong> Step-by-step tutorials on the latest AI tools and features.</span>
+            </li>
+
+            <li class="flex items-start">
+              <span class="text-success-green text-xl mr-3 mt-1">✓</span>
+              <span><strong class="text-white">Capcut pro:</strong> Get Access to Capcut pro for free and use all capcut pro features without restrictions</span>
+            </li>
+
+            <li class="flex items-start">
+              <span class="text-success-green text-xl mr-3 mt-1">✓</span>
+              <span><strong class="text-white">The Best Prompt Templates:</strong> Copy-paste prompts for incredible results in text, images, and code.</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-success-green text-xl mr-3 mt-1">✓</span>
+              <span><strong class="text-white">Ask-Me-Anything (AMA):</strong> Direct access to experts for real-time problem-solving.</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-success-green text-xl mr-3 mt-1">✓</span>
+              <span><strong class="text-white">Network of Builders:</strong> Connect with fellow AI enthusiasts and creators.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-center text-sm text-gray-500 mt-10">
+      Need help? Contact support via <a href="https://wa.me/2347079700619" target="_blank" class="text-primary-purple hover:underline">WhatsApp</a> before payment.
+    </p>
+  </div>
+
+  <script>
+    function copyDetails(text) {
+      const tempInput = document.createElement('textarea');
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      try {
+        document.execCommand('copy');
+        const copyMsg = document.getElementById('copy-message');
+        copyMsg.classList.remove('hidden');
+        setTimeout(() => copyMsg.classList.add('hidden'), 2000);
+      } catch (err) {
+        alert("Please manually copy the account number: " + text);
+      }
+      document.body.removeChild(tempInput);
+    }
+  </script>
+</body>
+</html>
